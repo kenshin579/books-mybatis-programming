@@ -15,7 +15,7 @@ public class SqlMapper {
     public SqlMapper() {
         try {
             // JDBC 드라이버 로딩
-            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -25,7 +25,7 @@ public class SqlMapper {
     protected Connection connect() throws SQLException {
         try {
             if (connection == null) {
-                connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "mybatis", "mybatis$");
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybatis", "mybatis", "mybatis$");
             }
 
             return connection;

@@ -18,14 +18,14 @@ public class Application {
 
         try {
             // JDBC 드라이버 로딩
-            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
 
         try {
             // 데이터베이스 연결
-            connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "mybatis", "mybatis$");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybatis", "mybatis", "mybatis$");
 
             // 쿼리문 처리 객체 생성
             preparedStatement = connection.prepareStatement("SELECT SHOP_NO, SHOP_NAME, SHOP_LOCATION, SHOP_STATUS "
