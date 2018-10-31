@@ -38,6 +38,10 @@ public class Application extends SqlMapper {
             throw e;
         } finally {
             // 자원 및 데이터베이스 연결 해제
+            /*
+            todo: 여기서 release 호출하면 Application에서 얻은 resultSet이 SqlMapper에 의해서 close되나?
+            - SqlMapper의 resultSet은 null이다. 아직 refactoring이 덜 된것 같다.
+             */
             release();
         }
 
