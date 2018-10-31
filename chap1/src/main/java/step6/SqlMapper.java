@@ -17,11 +17,11 @@ import java.util.regex.Pattern;
 
 public class SqlMapper {
     /* 데이터베이스 설정 프로퍼티 파일 경로 */
-    private String configurationResource = "resources/jdbc/config-jdbc.properties";
+    private String configurationResource = "jdbc/config-jdbc.properties";
     private Properties configuration = new Properties();
 
     /* 쿼리문 프로퍼티 파일 경로 */
-    private String sqlResource = "resources/jdbc/sql-inline.properties";
+    private String sqlResource = "jdbc/sql-inline.properties";
     private Properties sql = new Properties();
 
     private Connection connection;
@@ -205,9 +205,9 @@ public class SqlMapper {
     /* 쿼리문 실행 결과를 리절트 타입의 객체에 바인딩 */
     protected static <T> T resultByType(ResultSet resultSet, String type) throws Exception {
         try {
-            List<Object> fieldNames = new ArrayList<Object>();
-            List<Object> fieldTypes = new ArrayList<Object>();
-            List<Object> filedValues = new ArrayList<Object>();
+            List<Object> fieldNames = new ArrayList<>();
+            List<Object> fieldTypes = new ArrayList<>();
+            List<Object> filedValues = new ArrayList<>();
 
             if (resultSet.next()) {
                 for (int i = 1; i <= resultSet.getMetaData().getColumnCount(); i++) {
@@ -233,7 +233,7 @@ public class SqlMapper {
 
                     // 컬럼 타입을 추출한 다음 프로퍼터 타입으로 변환
                     switch (resultSet.getMetaData().getColumnType(i)) {
-                        case 2:
+                        case 8:
                             fieldTypes.add(int.class);
                             break;
                         case 12:
