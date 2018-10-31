@@ -1,5 +1,8 @@
 package step2;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -10,8 +13,10 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class SqlMapper {
+    private static final Logger LOG = LoggerFactory.getLogger(SqlMapper.class);
+
     /* 데이터베이스 설정 프로퍼티 파일 경로 */
-    private String configurationResource = "resources/jdbc/config-jdbc.properties";
+    private String configurationResource = "jdbc/config-jdbc.properties";
     private Properties configuration = new Properties();
 
     private Connection connection;
@@ -35,8 +40,10 @@ public class SqlMapper {
     protected Connection connect() throws SQLException {
         try {
             if (connection == null) {
-                connection = DriverManager.getConnection(configuration.getProperty("url"),
-                        configuration.getProperty("username"), configuration.getProperty("password"));
+                connection = DriverManager.getConnection(
+                        configuration.getProperty("url"),
+                        configuration.getProperty("username"),
+                        configuration.getProperty("password"));
             }
 
             return connection;
@@ -69,18 +76,18 @@ public class SqlMapper {
         }
     }
 
-    /* 데이터베이스 설정 프로퍼티 파일 로딩 */
+    /*
+     * 데이터베이스 설정 프로퍼티 파일 로딩
+     * - 실행 안되어 재작성함
+     * ㅁ. 참고: https://www.baeldung.com/java-properties
+     */
     private void configurationAsProperties() throws IOException {
         ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
 
-        InputStream inputStream = contextClassLoader.getResourceAsStream(configurationResource);
-
-        try {
+        try (InputStream inputStream = contextClassLoader.getResourceAsStream(configurationResource)) {
             configuration.load(inputStream);
         } catch (IOException e) {
             throw e;
-        } finally {
-            inputStream.close();
         }
     }
 }
