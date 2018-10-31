@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * step0은 Application 클래스는 JDBC 인터페이스 호출 순서에 맞추어 작성한 전형적인 JDBC 프로그램밍임
+ */
 public class Executor {
     private static final Logger logger = Logger.getLogger(Executor.class.getName());
 
