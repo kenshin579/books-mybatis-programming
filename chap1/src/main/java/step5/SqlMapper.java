@@ -15,11 +15,11 @@ import java.util.regex.Pattern;
 
 public class SqlMapper {
     /* 데이터베이스 설정 프로퍼티 파일 경로 */
-    private String configurationResource = "resources/jdbc/config-jdbc.properties";
+    private String configurationResource = "jdbc/config-jdbc.properties";
     private Properties configuration = new Properties();
 
     /* 쿼리문 프로퍼티 파일 경로 */
-    private String sqlResource = "resources/jdbc/sql-inline.properties";
+    private String sqlResource = "jdbc/sql-inline.properties";
     private Properties sql = new Properties();
 
     private Connection connection;
