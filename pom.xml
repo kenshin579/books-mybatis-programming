@@ -8,6 +8,7 @@
         <module>chap1</module>
         <module>chap2</module>
         <module>chap3</module>
+        <module>chap4</module>
     </modules>
     <packaging>pom</packaging>
   <name>books-mybatis-programming</name>
