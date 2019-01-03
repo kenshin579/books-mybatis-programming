@@ -3,7 +3,7 @@
          xmlns="http://java.sun.com/xml/ns/javaee"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_4_2.xsd"
          version="3.0">
-    <display-name></display-name>
+    <display-name>chap8-spring-mybatis-hello-world</display-name>
 
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

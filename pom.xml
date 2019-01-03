@@ -12,6 +12,11 @@
         <module>chap5</module>
         <module>chap6</module>
         <module>chap7</module>
+        <module>chap8-auto-mapping</module>
+        <module>chap8-dao</module>
+        <module>chap8-dao-support</module>
+        <module>chap8-spring-mybatis-hello-world</module>
+        <module>chap8-spring-mybatis-employee</module>
     </modules>
     <packaging>pom</packaging>
   <name>books-mybatis-programming</name>
