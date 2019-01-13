@@ -17,6 +17,7 @@
         <module>chap8-dao-support</module>
         <module>chap8-spring-mybatis-hello-world</module>
         <module>chap8-spring-mybatis-employee</module>
+        <module>appendix-d-cache</module>
     </modules>
     <packaging>pom</packaging>
   <name>books-mybatis-programming</name>
