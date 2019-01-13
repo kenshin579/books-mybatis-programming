@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.Reader;
 import java.util.Calendar;
+import java.util.Properties;
 import java.util.logging.Logger;
 
 public class CacheExecutor {
@@ -17,9 +18,20 @@ public class CacheExecutor {
 	static {
 		try {
 			// 마이바티스 환경 설정 XML 파일 경로
-			String resource = "/Users/ykoh/IdeaProjects/books-mybatis-programming/appendix-d-cache/src/main/resources/mybatis/config-mybatis.xml";
+//			String resource = "/Users/ykoh/IdeaProjects/books-mybatis-programming/appendix-d-cache/src/main/resources/mybatis/config-mybatis.xml";
+//			Reader reader = Resources.getResourceAsReader(resource);
+//			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+
+			// 마이바티스 환경 설정 파일 경로를 지정한다.
+			String resource = "mybatis/config-mybatis.xml";
 			Reader reader = Resources.getResourceAsReader(resource);
-			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+
+			// 기본(디폴트) 환경 기반으로 SqlSessionFactory 인터페이스를 구현한
+			// DefaultSeqlSessionFactory 객체를 생성한다.
+			Properties properties = new Properties();
+			properties.put("database_user", "mybatis");
+
+			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader, properties);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
