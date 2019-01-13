@@ -11,8 +11,8 @@
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>
-                classpath:resources/spring/context-spring.xml
-                classpath:resources/spring/context-mybatis.xml
+                classpath:spring/context-spring.xml
+                classpath:spring/context-mybatis.xml
             </param-value>
         </init-param>
     </servlet>
