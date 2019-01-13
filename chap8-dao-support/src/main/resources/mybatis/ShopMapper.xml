@@ -27,17 +27,26 @@
     </select>
 
     <!-- 등록 매핑 구문 -->
-    <insert id="insert" parameterType="shop">
-        <!-- 자동 생성 키 조회 -->
-        <selectKey keyColumn="SHOP_NO" keyProperty="shopNo" resultType="int"
-                   order="BEFORE">
-            SELECT SEQ_SHOP_NO.NEXTVAL
-            FROM DUAL
-        </selectKey>
+    <!-- oracle 버전-->
+    <!--<insert id="insert" parameterType="shop">-->
+        <!--&lt;!&ndash; 자동 생성 키 조회 &ndash;&gt;-->
+        <!--<selectKey keyColumn="SHOP_NO" keyProperty="shopNo" resultType="int"-->
+                   <!--order="BEFORE">-->
+            <!--SELECT SEQ_SHOP_NO.NEXTVAL-->
+            <!--FROM DUAL-->
+        <!--</selectKey>-->
+        <!--INSERT INTO SHOP-->
+        <!--(SHOP_NO, SHOP_NAME, SHOP_LOCATION, SHOP_STATUS)-->
+        <!--VALUES-->
+        <!--(#{shopNo}, #{shopName}, #{shopLocation}, #{shopStatus})-->
+    <!--</insert>-->
+
+    <!--mysql로 변경함-->
+    <insert id="insert" parameterType="shop" useGeneratedKeys="true" keyProperty="SHOP_NO">
         INSERT INTO SHOP
-        (SHOP_NO, SHOP_NAME, SHOP_LOCATION, SHOP_STATUS)
+        (SHOP_NAME, SHOP_LOCATION, SHOP_STATUS)
         VALUES
-        (#{shopNo}, #{shopName}, #{shopLocation}, #{shopStatus})
+        (#{shopName}, #{shopLocation}, #{shopStatus})
     </insert>
 
     <!-- 조회 매핑 구문 -->
